@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  //함수 작성
   return (
     <div className="App">
       <header className="App-header">
