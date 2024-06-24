@@ -1,6 +1,14 @@
 // src/Library.js
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import './assets/css/reset.css';
+import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
+// import 'react-circular-progressbar/dist/styles.css';
+import './assets/css/ProgressbarCustom.css';
+import './assets/css/Library.css';
+
+// img
+import wigerBasic from './assets/images/wiger-basic-bw.png';
 
 const Library = () => {
     const [userId, setUserId] = useState('');
@@ -79,7 +87,7 @@ const Library = () => {
                 return Math.floor(diff / (7 * 24 * 60 * 60 * 1000));
             };
 
-            const weeklyCountsArray = new Array(6).fill(0); // 6주간의 카운트 배열
+            const weeklyCountsArray = new Array(5).fill(0); // 5주간의 카운트 배열
 
             // 대출 중인 도서와 반납된 도서 모두 고려
             [...lentList, ...lendingList].forEach(item => {
@@ -105,35 +113,60 @@ const Library = () => {
     }, [lentList, lendingList]);
 
     return (
-        <div>
-            <h1>대출 내역 확인</h1>
-            <input
-                type="text"
-                placeholder="학번 입력"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-            />
-            <button onClick={handleSearch}>검색</button>
+        <div className="container">
+            <div className="id-finder">
+                <p>챌린지 도전 현황</p>
+                <input
+                    type="text"
+                    placeholder="학번"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)}
+                />
+                <button onClick={handleSearch}>조회</button>
+            </div>
             {userId && (
                 <div>
                     <h2>주차별 이벤트 참여 여부</h2>
-                    <ul>
+                    <ul className="badge-list">
                         {weeklyParticipation.map((participated, index) => (
-                            <li key={index}>
+                            <li key={index} className="badge">
                                 {index + 1}주차: {participated ? '참여' : '미참여'} ({weeklyCounts[index]}권 대출)
-                                <div style={{ width: '100%', backgroundColor: '#e0e0e0', borderRadius: '4px', margin: '5px 0' }}>
-                                    <div
-                                        style={{
-                                            width: `${(weeklyCounts[index] / 5) * 100}%`,
-                                            backgroundColor: participated ? 'green' : 'red',
-                                            height: '10px',
-                                            borderRadius: '4px'
+                                <div className="progress-box">
+                                    <CircularProgressbarWithChildren
+                                        value={weeklyCounts[index]}
+                                        maxValue={5}
+                                        styles={{
+                                            trail: {
+                                                stroke: '#eeeeee',
+                                                strokeLinecap: 'butt',
+                                                transform: 'rotate(0.25turn)',
+                                                transformOrigin: 'center center',
+                                            }
                                         }}
-                                    ></div>
+                                    >
+                                        <img style={{width: 100, marginTop: -5}} src={wigerBasic}
+                                             alt="wiger"/>
+                                    </CircularProgressbarWithChildren>
                                 </div>
+                                {/*<div style={{*/}
+                                {/*    width: '100%',*/}
+                                {/*    backgroundColor: '#e0e0e0',*/}
+                                {/*    borderRadius: '4px',*/}
+                                {/*    margin: '5px 0'*/}
+                                {/*}}>*/}
+                                {/*<div*/}
+                                {/*    style={{*/}
+                                {/*        width: `${(weeklyCounts[index] / 5) * 100}%`,*/}
+                                {/*        backgroundColor: participated ? 'green' : 'red',*/}
+                                {/*        height: '10px',*/}
+                                {/*        borderRadius: '4px'*/}
+                                {/*    }}*/}
+                                {/*></div>*/}
+                                {/*</div>*/}
                             </li>
                         ))}
                     </ul>
+
                 </div>
             )}
         </div>
