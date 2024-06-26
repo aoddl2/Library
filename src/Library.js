@@ -9,6 +9,14 @@ import './assets/css/Library.css';
 
 // img
 import wigerBasic from './assets/images/wiger-basic-bw.png';
+import logo from './assets/images/lib-logo.png';
+import wiger1 from './assets/images/wiger_1.png';
+import wiger2 from './assets/images/wiger_2.png';
+import wiger3 from './assets/images/wiger_3.png';
+import wiger4 from './assets/images/wiger_4.png';
+import wiger5 from './assets/images/wiger_5.png';
+
+const wigerImages = [wiger1, wiger2, wiger3, wiger4, wiger5];
 
 const Library = () => {
     const [userId, setUserId] = useState('');
@@ -114,8 +122,15 @@ const Library = () => {
 
     return (
         <div className="container">
-            <div className="id-finder">
-                <p>챌린지 도전 현황</p>
+            <section className="top-container">
+                <div className="title">
+                    <span>2024</span>
+                    <p>여름방학</p>
+                    <p>독서 챌린지</p>
+                </div>
+            </section>
+            <section className="id-finder">
+                <p>나의 챌린지 도전 현황</p>
                 <input
                     type="text"
                     placeholder="학번"
@@ -123,52 +138,57 @@ const Library = () => {
                     onChange={(e) => setUserId(e.target.value)}
                 />
                 <button onClick={handleSearch}>조회</button>
-            </div>
+            </section>
+            {/* result section start */}
             {userId && (
-                <div>
-                    <h2>주차별 이벤트 참여 여부</h2>
+                <section className="result-container">
                     <ul className="badge-list">
                         {weeklyParticipation.map((participated, index) => (
                             <li key={index} className="badge">
-                                {index + 1}주차: {participated ? '참여' : '미참여'} ({weeklyCounts[index]}권 대출)
                                 <div className="progress-box">
                                     <CircularProgressbarWithChildren
                                         value={weeklyCounts[index]}
                                         maxValue={5}
                                         styles={{
+                                            path: {
+                                                // Path color
+                                                // stroke: `rgba(62, 152, 199, ${percentage / 100})`,
+                                                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                                                stroke: '#000000',
+                                                strokeLinecap: 'round',
+                                                strokeWidth: '4',
+                                                // Customize transition animation
+                                                transition: 'stroke-dashoffset 0.5s ease 0s',
+                                                // Rotate the path
+                                                transformOrigin: 'center center',
+                                            },
                                             trail: {
                                                 stroke: '#eeeeee',
                                                 strokeLinecap: 'butt',
                                                 transform: 'rotate(0.25turn)',
                                                 transformOrigin: 'center center',
+                                                strokeWidth: '4',
                                             }
                                         }}
                                     >
-                                        <img style={{width: 100, marginTop: -5}} src={wigerBasic}
-                                             alt="wiger"/>
+                                        <img style={{width: "80%"}} src={participated ? wigerImages[index] : wigerBasic} alt="wiger"/>
                                     </CircularProgressbarWithChildren>
+
                                 </div>
-                                {/*<div style={{*/}
-                                {/*    width: '100%',*/}
-                                {/*    backgroundColor: '#e0e0e0',*/}
-                                {/*    borderRadius: '4px',*/}
-                                {/*    margin: '5px 0'*/}
-                                {/*}}>*/}
-                                {/*<div*/}
-                                {/*    style={{*/}
-                                {/*        width: `${(weeklyCounts[index] / 5) * 100}%`,*/}
-                                {/*        backgroundColor: participated ? 'green' : 'red',*/}
-                                {/*        height: '10px',*/}
-                                {/*        borderRadius: '4px'*/}
-                                {/*    }}*/}
-                                {/*></div>*/}
-                                {/*</div>*/}
+                                <p>{index + 1}주차</p>
+                                <span>({weeklyCounts[index]}/5)</span>
                             </li>
                         ))}
                     </ul>
-
-                </div>
+                </section>
             )}
+            {/* result section end */}
+
+            {/* footer start */}
+            <footer>
+                <img src={logo}/>
+            </footer>
+            {/* footer end */}
         </div>
     );
 };

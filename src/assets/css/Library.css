@@ -23,6 +23,10 @@
     font-family: 'SUIT-Regular';
 }
 
+section {
+    margin: 50px 0 ;
+}
+
 .container {
     border: 1px solid #eee;
     padding: 30px;
@@ -34,6 +38,13 @@
     align-items: center;
 }
 
+/* top start */
+.title {
+    text-align: center;
+}
+/* top end */
+
+/* finder start */
 .id-finder {
     display: flex;
     flex-direction: column;
@@ -70,7 +81,9 @@
     font-weight: bold;
     margin-top: 10px;
 }
+/* finder end */
 
+/* result start */
 .badge-list {
     display: flex;
     flex-wrap: wrap;
@@ -78,8 +91,27 @@
     gap: 5%;
 }
 
+/*.progress-box {*/
+/*    */
+/*}*/
+
 .badge {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
+/* result end */
+
+/* footer start */
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+footer img {
+    width: 50%;
+}
+/* footer end */
