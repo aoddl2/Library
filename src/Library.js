@@ -112,8 +112,8 @@ const Library = () => {
     useEffect(() => {
         if (lentList.length > 0 || lendingList.length > 0) {
             console.log("Calculating event participation");
-            const eventStartDate = new Date('2024-06-17');
-            const eventEndDate = new Date('2024-07-19');
+            const eventStartDate = new Date('2024-05-27');
+            const eventEndDate = new Date('2024-06-30');
 
             const isWithinEventPeriod = date => {
                 const d = new Date(date);
@@ -147,7 +147,7 @@ const Library = () => {
             });
 
             setWeeklyCounts(weeklyCountsArray);
-            setWeeklyParticipation(weeklyCountsArray.map(count => count >= 5));
+            setWeeklyParticipation(weeklyCountsArray.map((count, index) => index === 4 ? count >= 10 : count >= 5)); // 5주차는 10권
         }
     }, [lentList, lendingList]);
 
@@ -187,7 +187,7 @@ const Library = () => {
                                     <div className={`progress-box ${participated ? 'success' : ''}`}>
                                         <CircularProgressbarWithChildren
                                             value={weeklyCounts[index]}
-                                            maxValue={5}
+                                            maxValue={index === 4 ? 10 : 5} // 5주차는 10권
                                             styles={{
                                                 path: {
                                                     stroke: '#87B5F1',
