@@ -6,15 +6,18 @@ import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 // import 'react-circular-progressbar/dist/styles.css';
 import './assets/css/ProgressbarCustom.css';
 import './assets/css/Library.css';
+import './assets/css/LibraryMobile.css';
 
 // img
-import wigerBasic from './assets/images/wiger-basic-bw.png';
+// import wigerBasic from './assets/images/wiger-basic-bw.png';
+import wigerBook from './assets/images/wiger-book-bw.png';
 import logo from './assets/images/lib-logo.png';
 import wiger1 from './assets/images/wiger_1.png';
 import wiger2 from './assets/images/wiger_2.png';
 import wiger3 from './assets/images/wiger_3.png';
 import wiger4 from './assets/images/wiger_4.png';
 import wiger5 from './assets/images/wiger_5.png';
+import iconSearch from './assets/images/icon-search.png';
 
 const wigerImages = [wiger1, wiger2, wiger3, wiger4, wiger5];
 
@@ -121,72 +124,81 @@ const Library = () => {
     }, [lentList, lendingList]);
 
     return (
-        <div className="container">
-            <section className="top-container">
-                <div className="title">
-                    <span>2024</span>
-                    <p>여름방학</p>
-                    <p>독서 챌린지</p>
+        <div className="body">
+            <section className="top">
+                <div className="container">
+                    <span className="univname">영진전문대학교</span>
+                    <div className="title">
+                        <p>여름방학</p>
+                        <p>독서 챌린지</p>
+                        <span className="date">7.8 ~ 8.16 (5주)</span>
+                    </div>
                 </div>
             </section>
-            <section className="id-finder">
-                <p>나의 챌린지 도전 현황</p>
-                <input
-                    type="text"
-                    placeholder="학번"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                />
-                <button onClick={handleSearch}>조회</button>
-            </section>
             {/* result section start */}
-            {userId && (
-                <section className="result-container">
-                    <ul className="badge-list">
-                        {weeklyParticipation.map((participated, index) => (
-                            <li key={index} className="badge">
-                                <div className="progress-box">
-                                    <CircularProgressbarWithChildren
-                                        value={weeklyCounts[index]}
-                                        maxValue={5}
-                                        styles={{
-                                            path: {
-                                                // Path color
-                                                // stroke: `rgba(62, 152, 199, ${percentage / 100})`,
-                                                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-                                                stroke: '#000000',
-                                                strokeLinecap: 'round',
-                                                strokeWidth: '4',
-                                                // Customize transition animation
-                                                transition: 'stroke-dashoffset 0.5s ease 0s',
-                                                // Rotate the path
-                                                transformOrigin: 'center center',
-                                            },
-                                            trail: {
-                                                stroke: '#eeeeee',
-                                                strokeLinecap: 'butt',
-                                                transform: 'rotate(0.25turn)',
-                                                transformOrigin: 'center center',
-                                                strokeWidth: '4',
-                                            }
-                                        }}
-                                    >
-                                        <img style={{width: "80%"}} src={participated ? wigerImages[index] : wigerBasic} alt="wiger"/>
-                                    </CircularProgressbarWithChildren>
+            <section className="content">
+                <div className="container finder">
+                    <p>⭐나의 챌린지 현황⭐</p>
+                    <div className="finder-input">
+                        <input
+                            type="text"
+                            placeholder="학번"
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
+                        />
+                        <button onClick={handleSearch}>
+                            <img src={iconSearch} alt="검색"/>
+                        </button>
+                    </div>
+                </div>
+                {userId && (
+                    <div className="container result">
+                        <ul className="badge-list">
+                            {weeklyParticipation.map((participated, index) => (
+                                <li key={index} className="badge">
+                                    <div className={`progress-box ${participated ? 'success' : ''}`}>
+                                        <CircularProgressbarWithChildren
+                                            value={weeklyCounts[index]}
+                                            maxValue={5}
+                                            styles={{
+                                                path: {
+                                                    stroke: '#87B5F1',
+                                                    strokeLinecap: 'round',
+                                                    strokeWidth: '3',
+                                                    transition: 'stroke-dashoffset 0.5s ease 0s',
+                                                    transformOrigin: 'center center',
+                                                },
+                                                trail: {
+                                                    stroke: '#ECEDF0',
+                                                    strokeLinecap: 'butt',
+                                                    transform: 'rotate(0.25turn)',
+                                                    transformOrigin: 'center center',
+                                                    strokeWidth: '3',
+                                                }
+                                            }}
+                                        >
+                                            <img style={{width: "80%"}} className={participated ? "success-img" : ""}
+                                                 src={participated ? wigerImages[index] : wigerBook} alt="wiger"/>
+                                        </CircularProgressbarWithChildren>
+                                        {participated ? <p>완료</p> : ""}
 
-                                </div>
-                                <p>{index + 1}주차</p>
-                                <span>({weeklyCounts[index]}/5)</span>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            )}
+                                    </div>
+                                    {/*<span>({weeklyCounts[index]}/5)</span>*/}
+                                    <p>{index + 1}주차</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+            </section>
             {/* result section end */}
 
             {/* footer start */}
             <footer>
-                <img src={logo}/>
+                <p>41527 대구광역시 북구 복현로 35 (복현2동 218)</p>
+                <p>도서관 사무실 : 053-940-5152 / 자료실 : 053-940-5153</p>
+                <p>Copyright 2024 YEUNGJIN UNIVERSITY. All rights reserved.</p>
+                <img src={logo} alt="yjulib"/>
             </footer>
             {/* footer end */}
         </div>
