@@ -14,6 +14,11 @@ const Library = () => {
             const response = await axios.get(`/api/Ebook_Lent_list_xml.asp?user_id=${id}`);
             const parser = new DOMParser();
             const xml = parser.parseFromString(response.data, 'text/xml');
+            const resultCode = xml.getElementsByTagName('ResultCode')[0].textContent;
+            if (resultCode !== "0") {
+                alert("존재하지 않는 이용자입니다.");
+                return [];
+            }
             const items = xml.getElementsByTagName('item');
             const lentArray = [];
             for (let i = 0; i < items.length; i++) {
@@ -25,9 +30,10 @@ const Library = () => {
                     returnedDate
                 });
             }
-            setLentList(lentArray);
+            return lentArray;
         } catch (error) {
             console.error("There was an error fetching the lent data!", error);
+            return [];
         }
     };
 
@@ -47,20 +53,42 @@ const Library = () => {
                     expiredDate
                 });
             }
-            setLendingList(lendingArray);
+            return lendingArray;
         } catch (error) {
             console.error("There was an error fetching the lending data!", error);
+            return [];
         }
     };
 
-    const handleSearch = () => {
+    const handleSearch = async () => {
         if (userId.trim() === '') {
             alert('학번을 입력해주세요.');
             return;
         }
-        fetchLentData(userId);
-        fetchLendingData(userId);
+        // 상태 초기화
+        setLentList([]);
+        setLendingList([]);
+        setWeeklyCounts([]);
+        setWeeklyParticipation([]);
+
+        // 데이터 로드
+        const lentData = await fetchLentData(userId);
+        const lendingData = await fetchLendingData(userId);
+
+        // 상태 업데이트
+        setLentList(lentData);
+        setLendingList(lendingData);
     };
+
+    // userId가 변경될 때 상태 초기화
+    useEffect(() => {
+        if (userId.trim() === '') {
+            setLentList([]);
+            setLendingList([]);
+            setWeeklyCounts([]);
+            setWeeklyParticipation([]);
+        }
+    }, [userId]);
 
     useEffect(() => {
         if (lentList.length > 0 || lendingList.length > 0) {
@@ -114,7 +142,7 @@ const Library = () => {
                 onChange={(e) => setUserId(e.target.value)}
             />
             <button onClick={handleSearch}>검색</button>
-            {userId && (
+            {userId && weeklyCounts.length > 0 && (
                 <div>
                     <h2>주차별 이벤트 참여 여부</h2>
                     <ul>
