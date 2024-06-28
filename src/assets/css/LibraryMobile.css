@@ -1,0 +1,59 @@
+@media (max-width: 768px) {
+    .content {
+        padding: 30px;
+    }
+
+    /* top start */
+    .title p {
+        font-size: 4rem;
+    }
+
+    .date {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    /* top end */
+    /* finder start */
+    .finder p {
+        font-size: 1.5rem;
+    }
+
+    .finder input,
+    .finder button {
+        padding: 8px;
+    }
+
+    .finder input {
+        font-size: 1rem;
+    }
+
+    .finder button {
+        width: 50px;
+        font-size: 1rem;
+    }
+
+    /* finder end */
+    /* result start */
+    .badge {
+        gap: 10px;
+        margin: 12px 0;
+    }
+    .badge > p {
+        font-size: .9rem;
+    }
+    .progress-box {
+        border: 2px #ECEDF0 dotted;
+    }
+
+    .progress-box p {
+        width: 40px;
+        font-size: .8rem;
+    }
+
+    .success {
+        border: 1px #C7DCEF solid;
+    }
+
+    /* result end */
+}

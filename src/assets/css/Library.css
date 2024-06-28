@@ -1,0 +1,334 @@
+@font-face {
+    font-family: 'NanumSquareNeoLight';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoExtraBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoHeavy';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoVariable';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'TTLaundryGothicB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TTLaundryGothicR';
+    src: url('https://cdn.jsdelivr.net/gh/fontbee/font@main/Lifegoeson/TTLaundryGothicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+div, p, span, a, input {
+    font-family: 'NanumSquareNeoVariable';
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    padding: 30px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* top start */
+.top {
+    width: 100%;
+    background-color: #658EE7;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    background: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.univname {
+    font-size: 1rem;
+    font-family: 'NanumSquareNeoBold';
+    color: #EFF3FF;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 80px 0 30px;
+    gap: 10px;
+}
+
+.title p {
+    font-size: 6rem;
+    font-family: 'TTLaundryGothicB';
+    color: #fff;
+}
+
+.title .yellow {
+    color: #F7F78B;
+    font-family: 'TTLaundryGothicB';
+}
+
+.date {
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-top: 15px;
+    width: fit-content;
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    background-color: #F7F78B;
+    color: #2171B5 !important;
+    font-family: 'NanumSquareNeoHeavy';
+}
+
+/* top end */
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EFF3FF;
+    padding: 50px;
+    gap: 30px;
+}
+
+/* finder start */
+.finder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.finder p {
+    font-size: 2rem;
+    color: #084594;
+    font-family: 'NanumSquareNeoHeavy';
+}
+
+.finder-input {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    box-shadow: #8DACC533 0 0 5px;
+}
+
+.finder input,
+.finder button {
+    padding: 15px;
+    text-align: center;
+}
+
+.finder input {
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    font-size: 1.2rem;
+    flex-grow: 1;
+    color: #333;
+    font-family: 'NanumSquareNeoExtraBold';
+}
+
+.finder button {
+    padding: 5px;
+    width: 50px;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    font-size: 1rem;
+    background-color: #4D90EB;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.finder button img {
+    width: 80%;
+    color: #fff;
+}
+
+/* finder end */
+
+/* result start */
+.result {
+    max-width: 600px;
+    padding: 10px 0;
+    background-color: #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: #8DACC533 0 0 10px;
+}
+
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+}
+
+@keyframes showBadge {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.badge {
+    opacity: 0;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.badge > p {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 1rem;
+    color: #93B4CE;
+}
+
+.badge:nth-child(1) {
+    animation: showBadge 1s .2s forwards;
+}
+
+.badge:nth-child(2) {
+    animation: showBadge 1s .4s forwards;
+}
+
+.badge:nth-child(3) {
+    animation: showBadge 1s .6s forwards;
+}
+
+.badge:nth-child(4) {
+    animation: showBadge 1s .8s forwards;
+}
+
+.badge:nth-child(5) {
+    animation: showBadge 1s 1s forwards;
+}
+
+.progress-box {
+    background-color: #fff;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    /*padding: 5px;*/
+    border: 2px #ECEDF0 dashed;
+    position: relative;
+}
+
+.progress-box p {
+    font-family: 'yg-jalnan';
+    color: #4D90EB;
+    border: 1px #4D90EB solid;
+    background-color: #ffffffdd;
+    box-shadow: #4292C6 1px 1px 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 60px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-10deg);
+}
+
+@keyframes rotateY {
+    from {
+        transform: rotateY(0deg) translateY(-7%);
+    }
+    to {
+        transform: rotateY(360deg) translateY(-7%);
+    }
+}
+
+.success {
+    border: 1px #C7DCEF solid;
+}
+
+.success-img {
+    transform: translateY(-7%);
+    transition: all 1.5s linear;
+    animation: rotateY 1.5s infinite;
+}
+
+/* result end */
+
+/* footer start */
+footer {
+    width: 100%;
+    background-color: #EFF3FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 5px;
+}
+footer p {
+    font-size: .6rem;
+    color: #777;
+}
+footer img {
+    margin-top: 10px;
+    width: 40%;
+    max-width: 200px;
+}
+
+/* footer end */
