@@ -5,7 +5,6 @@ import gift2 from './assets/images/gift2.png';
 import gift3 from './assets/images/gift3.jpg';
 import gift4 from './assets/images/gift4.jpg';
 import gift5 from './assets/images/gift5.png';
-import gift7 from './assets/images/gift7.jpg';
 
 const Notice = () => {
     return (
