@@ -35,6 +35,13 @@
 }
 
 @font-face {
+    font-family: 'CWDangamAsac-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'TTLaundryGothicB';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
     font-weight: 700;
@@ -63,6 +70,7 @@ div, p, span, a, input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 320px;
 }
 
 .container {
@@ -76,19 +84,20 @@ div, p, span, a, input {
 /* top start */
 .top {
     width: 100%;
-    background-color: #658EE7;
     display: flex;
     justify-content: center;
-    padding: 30px 0;
-    background: url("../images/background.jpg");
-    background-size: cover;
-    background-position: center;
+    padding: 70px 0;
+    background: #26A7E9 url("../images/background.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 .univname {
     font-size: 1rem;
     font-family: 'NanumSquareNeoBold';
     color: #EFF3FF;
+    line-height: 1.25rem;
+    opacity: .6;
 }
 
 .title {
@@ -101,8 +110,8 @@ div, p, span, a, input {
 }
 
 .title p {
-    font-size: 6rem;
-    font-family: 'TTLaundryGothicB';
+    font-size: 7rem;
+    font-family: 'CWDangamAsac-Bold';
     color: #fff;
 }
 
@@ -126,12 +135,187 @@ div, p, span, a, input {
 
 /* top end */
 
+/* notice start */
+.notice {
+    width: 100%;
+    background-color: #F9F8EC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 80px;
+    background: #F9F8EC url("../images/background2.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.notice .title {
+    font-size: 2rem;
+    font-family: 'NanumSquareNeoHeavy';
+    color: #084594;
+}
+
+.notice p {
+    font-family: 'NanumSquareNeoBold';
+    font-size: 1.2rem;
+}
+
+.notice .red {
+    font-size: .8rem;
+    color: #F17872;
+    margin-top: 10px;
+}
+
+.notice a {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    background-color: #FFBE28;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.3rem;
+    margin-top: 30px;
+    font-family: 'NanumSquareNeoExtraBold';
+    box-shadow: #33333311 0 0 10px;
+    transition: all .2s;
+}
+
+.notice a:hover {
+    background-color: #FCCC4C;
+    transform: translateY(-10%);
+}
+
+.mission-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    justify-content: center;
+}
+
+.mission,
+.sub-mission {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: #33333311 0 0 10px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.mission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.mission-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.mission-date p {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 1rem;
+    color: #6194CB;
+}
+
+.mission-date span {
+    font-family: 'NanumSquareNeo';
+    font-size: .7rem;
+    color: #A9BCC2;
+}
+
+.mission > img {
+    width: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.mission-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.mission-desc p {
+    font-family: 'NanumSquareNeoHeavy';
+    font-size: 1.2rem;
+}
+
+.mission-desc span {
+    font-family: 'NanumSquareNeo';
+    font-size: .7rem;
+    color: #999;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.plus {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.plus > div {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+    width: 60px;
+    height: 8px;
+    background-color: #FCCC4C;
+    top: 50%;
+    left: 50%;
+}
+
+.plus > div:first-child {
+    transform: translate(-50%, -50%);
+}
+
+.plus > div:last-child {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.sub-mission-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+}
+
+.sub-mission {
+    width: 45%;
+    padding: 30px 20px;
+}
+
+.sub-mission span {
+    font-size: 1rem;
+    color: #000;
+}
+
+.highlight {
+    font-family: 'NanumSquareNeoHeavy' !important;
+    font-size: 1.2rem !important;
+    color: #000 !important;
+    position: relative;
+    background-color: #F7F78B;
+}
+
+/* notice end */
+
 .content {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #EFF3FF;
+    background-color: #EAF8FD;
     padding: 50px;
     gap: 30px;
 }
@@ -180,7 +364,7 @@ div, p, span, a, input {
     -moz-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
     font-size: 1rem;
-    background-color: #4D90EB;
+    background-color: #26A7E9;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -197,7 +381,7 @@ div, p, span, a, input {
 /* result start */
 .result {
     max-width: 600px;
-    padding: 10px 0;
+    padding: 15px 0;
     background-color: #fff;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -230,14 +414,20 @@ div, p, span, a, input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
     margin: 20px 0;
+    gap: 10px;
 }
 
 .badge > p {
     font-family: 'NanumSquareNeoExtraBold';
     font-size: 1rem;
     color: #93B4CE;
+}
+
+.badge > span {
+    font-family: 'NanumSquareNeo';
+    font-size: .7rem;
+    color: #999;
 }
 
 .badge:nth-child(1) {
@@ -314,17 +504,19 @@ div, p, span, a, input {
 /* footer start */
 footer {
     width: 100%;
-    background-color: #EFF3FF;
+    background-color: #EAF8FD;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px 0;
     gap: 5px;
 }
+
 footer p {
     font-size: .6rem;
     color: #777;
 }
+
 footer img {
     margin-top: 10px;
     width: 40%;

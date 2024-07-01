@@ -3,6 +3,16 @@
         padding: 30px;
     }
 
+    .top {
+        background-size: 200%;
+        padding-top: 20px;
+    }
+
+    .univname {
+        font-size: .7rem;
+        line-height: 1rem;
+    }
+
     /* top start */
     .title p {
         font-size: 4rem;
@@ -11,6 +21,84 @@
     .date {
         font-size: 1rem;
         padding: 10px 20px;
+    }
+
+    .notice {
+        background-size: 200%;
+    }
+
+    .notice .title {
+        font-size: 1.5rem;
+    }
+
+    .notice p {
+        font-size: 1rem;
+    }
+
+    .notice .red {
+        font-size: .6rem;
+        text-align: center;
+    }
+
+    .notice a {
+        font-size: 1rem;
+    }
+
+    .mission-box {
+        gap: 4%;
+    }
+
+    .mission {
+        width: 48%;
+        padding: 15px;
+        margin: 2% 0;
+        gap: 10px;
+    }
+
+    .mission-date p {
+        font-size: .8rem;
+    }
+
+    .mission-date span {
+        font-size: .5rem;
+    }
+
+    .mission-desc p {
+        font-size: .9rem;
+    }
+
+    .mission-desc span {
+        font-size: .6rem;
+    }
+
+    .sub-mission-box {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .sub-mission {
+        width: 80%;
+        padding: 20px 10px;
+    }
+
+    .sub-mission span {
+        font-size: .7rem;
+    }
+
+    .highlight {
+        font-size: .9rem !important;
+    }
+
+    .plus {
+        width: 90px;
+        height: 90px;
+    }
+
+    .plus > div {
+        width: 40px;
+        height: 6px;
     }
 
     /* top end */
@@ -39,9 +127,11 @@
         gap: 10px;
         margin: 12px 0;
     }
+
     .badge > p {
         font-size: .9rem;
     }
+
     .progress-box {
         border: 2px #ECEDF0 dotted;
     }

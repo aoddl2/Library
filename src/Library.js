@@ -8,6 +8,9 @@ import './assets/css/ProgressbarCustom.css';
 import './assets/css/Library.css';
 import './assets/css/LibraryMobile.css';
 
+// layout
+import Notice from './Notice.js';
+
 // img
 // import wigerBasic from './assets/images/wiger-basic-bw.png';
 import wigerBook from './assets/images/wiger-book-bw.png';
@@ -20,6 +23,7 @@ import wiger5 from './assets/images/wiger_5.png';
 import iconSearch from './assets/images/icon-search.png';
 
 const wigerImages = [wiger1, wiger2, wiger3, wiger4, wiger5];
+const dateStrings = ["7/8 ~ 7/14", "7/15 ~ 7/21", "7/22 ~ 7/28", "7/29 ~ 8/4", "8/5 ~ 8/16"]
 
 const Library = () => {
     const [userId, setUserId] = useState('');
@@ -112,8 +116,8 @@ const Library = () => {
     useEffect(() => {
         if (lentList.length > 0 || lendingList.length > 0) {
             console.log("Calculating event participation");
-            const eventStartDate = new Date('2024-06-17');
-            const eventEndDate = new Date('2024-07-19');
+            const eventStartDate = new Date('2024-05-27');
+            const eventEndDate = new Date('2024-06-30');
 
             const isWithinEventPeriod = date => {
                 const d = new Date(date);
@@ -147,7 +151,7 @@ const Library = () => {
             });
 
             setWeeklyCounts(weeklyCountsArray);
-            setWeeklyParticipation(weeklyCountsArray.map(count => count >= 5));
+            setWeeklyParticipation(weeklyCountsArray.map((count, index) => index === 4 ? count >= 10 : count >= 5)); // 5주차는 10권
         }
     }, [lentList, lendingList]);
 
@@ -156,17 +160,19 @@ const Library = () => {
             <section className="top">
                 <div className="container">
                     <span className="univname">영진전문대학교</span>
+                    <span className="univname">하계방학 도서관 문화행사</span>
                     <div className="title">
-                        <p>여름방학</p>
-                        <p>독서 챌린지</p>
-                        <span className="date">7.8 ~ 8.16 (5주)</span>
+                        <p>여름 독서</p>
+                        <p>챌린지</p>
+                        <span className="date">7월 8일 ~ 8월 16일 </span>
                     </div>
                 </div>
             </section>
+            <Notice />
             {/* result section start */}
             <section className="content">
                 <div className="container finder">
-                    <p>⭐나의 챌린지 현황⭐</p>
+                    <p>⭐ 나의 챌린지 현황 ⭐</p>
                     <div className="finder-input">
                         <input
                             type="text"
@@ -184,10 +190,12 @@ const Library = () => {
                         <ul className="badge-list">
                             {weeklyParticipation.map((participated, index) => (
                                 <li key={index} className="badge">
+                                    <p>{index + 1}주차</p>
+                                    <span>({dateStrings[index]})</span>
                                     <div className={`progress-box ${participated ? 'success' : ''}`}>
                                         <CircularProgressbarWithChildren
                                             value={weeklyCounts[index]}
-                                            maxValue={5}
+                                            maxValue={index === 4 ? 10 : 5} // 5주차는 10권
                                             styles={{
                                                 path: {
                                                     stroke: '#87B5F1',
@@ -212,7 +220,7 @@ const Library = () => {
 
                                     </div>
                                     {/*<span>({weeklyCounts[index]}/5)</span>*/}
-                                    <p>{index + 1}주차</p>
+
                                 </li>
                             ))}
                         </ul>
