@@ -164,7 +164,7 @@ const Library = () => {
                     <div className="title">
                         <p>여름 독서</p>
                         <p>챌린지</p>
-                        <span className="date">7월 8일 ~ 8월 16일 </span>
+                        <span className="date">7월 8일 ~ 8월 18일 </span>
                     </div>
                 </div>
             </section>
