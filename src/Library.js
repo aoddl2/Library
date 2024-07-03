@@ -23,7 +23,7 @@ import wiger5 from './assets/images/wiger_5.png';
 import iconSearch from './assets/images/icon-search.png';
 
 const wigerImages = [wiger1, wiger2, wiger3, wiger4, wiger5];
-const dateStrings = ["7/8 ~ 7/14", "7/15 ~ 7/21", "7/22 ~ 7/28", "7/29 ~ 8/4", "8/5 ~ 8/16"]
+const dateStrings = ["7/8 ~ 7/14", "7/15 ~ 7/21", "7/22 ~ 7/28", "7/29 ~ 8/4", "8/5 ~ 8/18"]
 
 const Library = () => {
     const [userId, setUserId] = useState('');
@@ -37,7 +37,7 @@ const Library = () => {
             const response = await axios.get(`/api/Ebook_Lent_list_xml.asp?user_id=${id}`);
             const parser = new DOMParser();
             const xml = parser.parseFromString(response.data, 'text/xml');
-            const resultCode = xml.getElementsByTagName('ResultCode')[0].textContent;
+            const resultCode = xml.getElementsByTagName('ResultCode')[0]?.textContent;
             if (resultCode !== "0") {
                 alert("존재하지 않는 이용자입니다.");
                 return [];
@@ -46,8 +46,8 @@ const Library = () => {
             const lentArray = [];
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
-                const lendingDate = item.getElementsByTagName('lending_date')[0].textContent;
-                const returnedDate = item.getElementsByTagName('returned_date')[0]?.textContent;
+                const lendingDate = item.getElementsByTagName('lending_date')[0]?.textContent || '';
+                const returnedDate = item.getElementsByTagName('returned_date')[0]?.textContent || '';
                 lentArray.push({
                     lendingDate,
                     returnedDate
@@ -69,8 +69,8 @@ const Library = () => {
             const lendingArray = [];
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
-                const lendingDate = item.getElementsByTagName('lending_date')[0].textContent;
-                const expiredDate = item.getElementsByTagName('expired_date')[0].textContent;
+                const lendingDate = item.getElementsByTagName('lending_date')[0]?.textContent || '';
+                const expiredDate = item.getElementsByTagName('expired_date')[0]?.textContent || '';
                 lendingArray.push({
                     lendingDate,
                     expiredDate
@@ -116,8 +116,8 @@ const Library = () => {
     useEffect(() => {
         if (lentList.length > 0 || lendingList.length > 0) {
             console.log("Calculating event participation");
-            const eventStartDate = new Date('2024-05-27');
-            const eventEndDate = new Date('2024-06-30');
+            const eventStartDate = new Date('2024-07-08');
+            const eventEndDate = new Date('2024-08-18');
 
             const isWithinEventPeriod = date => {
                 const d = new Date(date);
@@ -164,7 +164,7 @@ const Library = () => {
                     <div className="title">
                         <p>여름 독서</p>
                         <p>챌린지</p>
-                        <span className="date">7월 8일 ~ 8월 16일 </span>
+                        <span className="date">7월 8일 ~ 8월 18일 </span>
                     </div>
                 </div>
             </section>

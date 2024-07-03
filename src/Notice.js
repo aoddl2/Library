@@ -68,7 +68,7 @@ const Notice = () => {
                     <div className="mission">
                         <div className="mission-date">
                             <p>5주차 미션</p>
-                            <span>8/5 ~ 8/16</span>
+                            <span>8/5 ~ 8/18</span>
                         </div>
                         <img src={gift5} alt="레고트텀블러"/>
                         <div className="mission-desc">
