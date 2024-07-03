@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './assets/css/reset.css';
 import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
-// import 'react-circular-progressbar/dist/styles.css';
 import './assets/css/ProgressbarCustom.css';
 import './assets/css/Library.css';
 import './assets/css/LibraryMobile.css';
@@ -12,7 +11,6 @@ import './assets/css/LibraryMobile.css';
 import Notice from './Notice.js';
 
 // img
-// import wigerBasic from './assets/images/wiger-basic-bw.png';
 import wigerBook from './assets/images/wiger-book-bw.png';
 import logo from './assets/images/lib-logo.png';
 import wiger1 from './assets/images/wiger_1.png';
