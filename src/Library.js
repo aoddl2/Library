@@ -23,7 +23,7 @@ import wiger5 from './assets/images/wiger_5.png';
 import iconSearch from './assets/images/icon-search.png';
 
 const wigerImages = [wiger1, wiger2, wiger3, wiger4, wiger5];
-const dateStrings = ["7/8 ~ 7/14", "7/15 ~ 7/21", "7/22 ~ 7/28", "7/29 ~ 8/4", "8/5 ~ 8/16"]
+const dateStrings = ["7/8 ~ 7/14", "7/15 ~ 7/21", "7/22 ~ 7/28", "7/29 ~ 8/4", "8/5 ~ 8/18"]
 
 const Library = () => {
     const [userId, setUserId] = useState('');
@@ -164,7 +164,7 @@ const Library = () => {
                     <div className="title">
                         <p>여름 독서</p>
                         <p>챌린지</p>
-                        <span className="date">7월 8일 ~ 8월 16일 </span>
+                        <span className="date">7월 8일 ~ 8월 18일 </span>
                     </div>
                 </div>
             </section>

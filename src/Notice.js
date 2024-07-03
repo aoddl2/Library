@@ -5,7 +5,6 @@ import gift2 from './assets/images/gift2.png';
 import gift3 from './assets/images/gift3.jpg';
 import gift4 from './assets/images/gift4.jpg';
 import gift5 from './assets/images/gift5.png';
-import gift7 from './assets/images/gift7.jpg';
 
 const Notice = () => {
     return (
@@ -68,7 +67,7 @@ const Notice = () => {
                     <div className="mission">
                         <div className="mission-date">
                             <p>5주차 미션</p>
-                            <span>8/5 ~ 8/16</span>
+                            <span>8/5 ~ 8/18</span>
                         </div>
                         <img src={gift5} alt="레고트텀블러"/>
                         <div className="mission-desc">
