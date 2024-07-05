@@ -32,7 +32,7 @@ const Library = () => {
 
     const fetchLentData = async (id) => {
         try {
-            const response = await axios.get(`/api/Ebook_Lent_list_xml.asp?user_id=${id}`);
+            const response = await axios.get(`https://ebook.yjc.ac.kr/api/Ebook_Lent_list_xml.asp?user_id=${id}`);
             const parser = new DOMParser();
             const xml = parser.parseFromString(response.data, 'text/xml');
             const resultCode = xml.getElementsByTagName('ResultCode')[0]?.textContent;
@@ -60,7 +60,7 @@ const Library = () => {
 
     const fetchLendingData = async (id) => {
         try {
-            const response = await axios.get(`/api/Ebook_Lending_list_xml.asp?user_id=${id}`);
+            const response = await axios.get(`https://ebook.yjc.ac.kr/api/Ebook_Lending_list_xml.asp?user_id=${id}`);
             const parser = new DOMParser();
             const xml = parser.parseFromString(response.data, 'text/xml');
             const items = xml.getElementsByTagName('item');
